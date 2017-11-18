@@ -12,7 +12,7 @@ namespace KeyboardUnchatter
 
         private KeyStatusList _keyStatusList = new KeyStatusList();
 
-        private const double kChatterTimeMs = 30;
+        private double _chatterTimeMs = 30;
 
         public event Action<Keys> OnKeyPress;
         public event Action<Keys> OnKeyBlocked;
@@ -23,6 +23,12 @@ namespace KeyboardUnchatter
         {
             get => _active;
             set => _active = value;
+        }
+
+        public double ChatterTimeMs
+        {
+            get => _chatterTimeMs;
+            set => _chatterTimeMs = value;
         }
 
         #endregion
@@ -64,7 +70,7 @@ namespace KeyboardUnchatter
 
                 double timeSpan = key.GetLastPressTimeSpan();
 
-                if(timeSpan < kChatterTimeMs)
+                if(timeSpan < _chatterTimeMs)
                 {
                     key.Block();
                     RegisterChatterPress(keyPress.Key);

@@ -90,6 +90,7 @@
             this._buttonActivate.Name = "_buttonActivate";
             this._buttonActivate.Size = new System.Drawing.Size(137, 27);
             this._buttonActivate.TabIndex = 2;
+            this._buttonActivate.TabStop = false;
             this._buttonActivate.Text = "Activate";
             this._buttonActivate.UseVisualStyleBackColor = true;
             this._buttonActivate.Click += new System.EventHandler(this.OnActivateButtonClick);
@@ -116,6 +117,7 @@
             this._mainDataGrid.RowHeadersVisible = false;
             this._mainDataGrid.Size = new System.Drawing.Size(583, 204);
             this._mainDataGrid.TabIndex = 3;
+            this._mainDataGrid.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.DataSortCompare);
             // 
             // Key
             // 
@@ -176,6 +178,7 @@
             this._activateOnLaunchCheckBox.Name = "_activateOnLaunchCheckBox";
             this._activateOnLaunchCheckBox.Size = new System.Drawing.Size(15, 14);
             this._activateOnLaunchCheckBox.TabIndex = 7;
+            this._activateOnLaunchCheckBox.TabStop = false;
             this._activateOnLaunchCheckBox.UseVisualStyleBackColor = true;
             this._activateOnLaunchCheckBox.CheckedChanged += new System.EventHandler(this.OnActivateOnLaunchCheckBox);
             // 
@@ -205,6 +208,7 @@
             this._minimizeCheckBox.Name = "_minimizeCheckBox";
             this._minimizeCheckBox.Size = new System.Drawing.Size(15, 14);
             this._minimizeCheckBox.TabIndex = 4;
+            this._minimizeCheckBox.TabStop = false;
             this._minimizeCheckBox.UseVisualStyleBackColor = true;
             this._minimizeCheckBox.CheckedChanged += new System.EventHandler(this.OnMinimizeCheckBoxValueChanged);
             // 
@@ -223,6 +227,7 @@
             this._thresholdTimeInput.Name = "_thresholdTimeInput";
             this._thresholdTimeInput.Size = new System.Drawing.Size(47, 20);
             this._thresholdTimeInput.TabIndex = 2;
+            this._thresholdTimeInput.TabStop = false;
             this._thresholdTimeInput.Value = new decimal(new int[] {
             20,
             0,

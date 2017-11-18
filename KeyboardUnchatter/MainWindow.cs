@@ -78,6 +78,7 @@ namespace KeyboardUnchatter
             {
                 DeactivateKeyboardMonitor();
             }
+            ActiveControl = null;
         }
 
         private void ActivateKeyboardMonitor()
@@ -133,6 +134,7 @@ namespace KeyboardUnchatter
         {
             Properties.Settings.Default.chatterThreshold = _thresholdTimeInput.Value;
             Properties.Settings.Default.Save();
+            Program.KeyboardMonitor.ChatterTimeMs = System.Convert.ToDouble(_thresholdTimeInput.Value);
         }
 
         private void OnMinimizeCheckBoxValueChanged(object sender, EventArgs e)
@@ -146,8 +148,26 @@ namespace KeyboardUnchatter
             Properties.Settings.Default.activateOnLaunch = _activateOnLaunchCheckBox.Checked;
             Properties.Settings.Default.Save();
         }
-        #endregion
 
+
+        private void DataSortCompare(object sender, DataGridViewSortCompareEventArgs e)
+        {
+            if (e.Column.Index == 1 || e.Column.Index == 2)
+            {
+                e.SortResult = int.Parse(e.CellValue1.ToString()).CompareTo(int.Parse(e.CellValue2.ToString()));
+                e.Handled = true;
+            }
+
+            if (e.Column.Index == 3)
+            {
+                var value1 = e.CellValue1.ToString().Replace("%","");
+                var value2 = e.CellValue2.ToString().Replace("%", "");
+
+                e.SortResult = int.Parse(value1.ToString()).CompareTo(int.Parse(value2.ToString()));
+                e.Handled = true;
+            }
+        }
+        #endregion
 
     }
 }
