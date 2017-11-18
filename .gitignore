@@ -1,0 +1,4 @@
+bin
+obj
+.vs
+*.cssproj.usser
