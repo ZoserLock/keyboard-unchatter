@@ -8,17 +8,24 @@ namespace KeyboardUnchatter
 {
     class KeyStatusList
     {
+        public enum PressStatus
+        {
+            Down =0,
+            Up =1,
+        }
         public class KeyStatus
         {
             private int _keyCode;
             private DateTime _pressDownTime;
             private bool _blocked;
+            private PressStatus _lastPressStatus;
 
             #region Get/Set
             public int KeyCode
             {
                 get => _keyCode;
             }
+
             public DateTime PressDownTime
             {
                 get => _pressDownTime;
@@ -28,6 +35,13 @@ namespace KeyboardUnchatter
             {
                 get => _blocked;
             }
+
+            internal PressStatus LastPressStatus
+            {
+                get => _lastPressStatus;
+                set => _lastPressStatus = value;
+            }
+
             #endregion
 
             public KeyStatus(int code)

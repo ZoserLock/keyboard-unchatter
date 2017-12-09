@@ -63,7 +63,10 @@ namespace KeyboardUnchatter
 
             if (keyPress.Status == InputHook.KeyStatus.Down)
             {
-                if (key.IsBlocked)
+                var lastPressStatus = key.LastPressStatus;
+                key.LastPressStatus = KeyStatusList.PressStatus.Down;
+
+                if (lastPressStatus == KeyStatusList.PressStatus.Up &&  key.IsBlocked)
                 {
                     return false;
                 }
@@ -74,13 +77,14 @@ namespace KeyboardUnchatter
                 {
                     key.Block();
                     RegisterChatterPress(keyPress.Key);
-                    Debug.WriteLine("Blocking chatter key On Down: "+ keyPress.Key + " timeSpan: " + timeSpan);
                     return false;
                 }
             }
 
             if (keyPress.Status == InputHook.KeyStatus.Up)
             {
+                var lastPressStatus = key.LastPressStatus;
+                key.LastPressStatus = KeyStatusList.PressStatus.Up;
 
                 bool keyWasBlocked = key.IsBlocked;
                 key.Press();

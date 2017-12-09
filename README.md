@@ -1,4 +1,4 @@
-# Keyboard Nnchatter
+# Keyboard Unchatter
 Application to fix the keyboard chattering of mechanical switches
 
 ## Overview
@@ -7,7 +7,7 @@ This application fix the repeated keys in damaged Mechanical Switches by filteri
 
 # Releases
 
-[Version 1.0.0](https://github.com/ZoserLock/keyboard-unchatter/releases/tag/v1.0.0)
+[Version 1.0.1](https://github.com/ZoserLock/keyboard-unchatter/releases/tag/v1.0.1)
 
 
 # Screenshots
