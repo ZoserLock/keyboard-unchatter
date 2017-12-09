@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataGridController.cs" />
+    <Compile Include="ExtensionMethods.cs" />
     <Compile Include="KeyboardMonitor.cs" />
     <Compile Include="KeyStatusList.cs" />
     <Compile Include="MainWindow.cs">

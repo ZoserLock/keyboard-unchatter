@@ -46,6 +46,7 @@ namespace KeyboardUnchatter
         public DataGridController(DataGridView dataGrid)
         {
             _dataGrid = dataGrid;
+            _dataGrid.DoubleBuffered(true);
         }
 
         public void AddKeyPress(Keys key)
