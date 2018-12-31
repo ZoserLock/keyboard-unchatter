@@ -14,13 +14,13 @@ This application fix the repeated keys in damaged Mechanical Switches by filteri
 
 While this tool works well while typing, the method used is not fully reliable, in some cases the **Key Up** event is not registered because was blocked by the app, that results in bad output if the running application is for example a game. 
 
-There is no way to know if the **Key Up** event  
+There is no way to know if the **Key Up** event was trigged by the user or by the keyboard chattering so I thing the problem is not fully fixeable using this method.
 
-I don't recomend to use this tool while playing games. In future released, an option to disable the application if selected process is running will be added, since the chattering problem does not affect games that much.
+I don't recommend to use this tool while playing games. In future released, an option to disable the application if selected process is running will be added, since the chattering problem does not affect games that much.
 
 # To Do List
 
-* Add the option to disable all statistics.
+* Add option to disable all statistics.
 * Add a list of applications to disable the action of this tool. (ex: Games)
 
 # Screenshots
