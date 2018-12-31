@@ -68,6 +68,7 @@ namespace KeyboardUnchatter
 
                 if (lastPressStatus == KeyStatusList.PressStatus.Up &&  key.IsBlocked)
                 {
+                    Debug.Log("Key"+ key.KeyCode+" is blocked. Discarding");
                     return false;
                 }
 
@@ -75,6 +76,7 @@ namespace KeyboardUnchatter
 
                 if(timeSpan < _chatterTimeMs)
                 {
+                    Debug.Log("Key" + key.KeyCode + " timeSpawn is below limit. Blocking");
                     key.Block();
                     RegisterChatterPress(keyPress.Key);
                     return false;
@@ -89,12 +91,14 @@ namespace KeyboardUnchatter
                 bool keyWasBlocked = key.IsBlocked;
                 key.Press();
 
-                if (keyWasBlocked)
+                if (keyWasBlocked && key.GetBlockTimeSpan() < _chatterTimeMs)
                 {
+                    Debug.Log("Key" + key.KeyCode + " was blocked");
                     return false;
                 }
                 else
                 {
+                    Debug.Log("Key" + key.KeyCode + " pressed");
                     RegisterPress(keyPress.Key);
                 }
             }

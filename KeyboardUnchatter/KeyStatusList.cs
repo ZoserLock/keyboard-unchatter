@@ -17,6 +17,7 @@ namespace KeyboardUnchatter
         {
             private int _keyCode;
             private DateTime _pressDownTime;
+            private DateTime _blockTime;
             private bool _blocked;
             private PressStatus _lastPressStatus;
 
@@ -31,6 +32,12 @@ namespace KeyboardUnchatter
                 get => _pressDownTime;
 
             }
+              
+            public DateTime BlockTime
+            {
+                get => _blockTime;
+            }
+
             public bool IsBlocked
             {
                 get => _blocked;
@@ -41,6 +48,7 @@ namespace KeyboardUnchatter
                 get => _lastPressStatus;
                 set => _lastPressStatus = value;
             }
+        
 
             #endregion
 
@@ -57,9 +65,16 @@ namespace KeyboardUnchatter
                 return timeSpan.TotalMilliseconds;
             }
 
+            public double GetBlockTimeSpan()
+            {
+                var timeSpan = (DateTime.Now - _blockTime);
+                return timeSpan.TotalMilliseconds;
+            }
+
             public void Block()
             {
                 _blocked = true;
+                _blockTime = DateTime.Now;
             }
 
             public void Press()
